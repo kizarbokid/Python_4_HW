@@ -74,11 +74,19 @@ def toGetValuesFromString(string):
     # записать в словарь все остальные члены
     for value in values_list:
         if '*' in value:
-            values_dict[int(value[value.find('^')+1:])] = int(value[:value.find('*')])
+            values_dict[int(value[value.find('^')+1:])
+                        ] = int(value[:value.find('*')])
         else:  # если нет знака умножения, значит коэффициент=1
             values_dict[int(value[value.find('^')+1:])] = 1
 
     return values_dict
+
+
+def toSumPolynom(dict_1: dict, dict_2: dict):
+    sum_dict = dict()
+    for i in range(len(dict_1)-1,-1,-1):
+        sum_dict[i]=dict_1[i]+dict_2[i]
+    return sum_dict 
 
 
 low = -100
@@ -92,5 +100,8 @@ my_str = toCreatePolynomialStr(my_dict)
 toWriteSomeStrInTXT(my_str, 'polynomial2.txt')
 import_str1 = toReadSomeStrFromTXT('polynomial1.txt')
 import_str2 = toReadSomeStrFromTXT('polynomial2.txt')
-import_dict1=toGetValuesFromString(import_str1)
-import_dict2=toGetValuesFromString(import_str2)
+import_dict1 = toGetValuesFromString(import_str1)
+import_dict2 = toGetValuesFromString(import_str2)
+sum_polinom_dict=toSumPolynom(import_dict1,import_dict2)
+my_str = toCreatePolynomialStr(sum_polinom_dict)
+toWriteSomeStrInTXT(my_str, 'sum_polinom.txt')
