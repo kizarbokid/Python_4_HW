@@ -81,7 +81,7 @@ def toGetValuesFromString(string):
 
     return values_dict
 
-
+# сложить многочлены
 def toSumPolynom(dict_1: dict, dict_2: dict):
     sum_dict = dict()
     for i in range(len(dict_1)-1,-1,-1):
@@ -89,8 +89,8 @@ def toSumPolynom(dict_1: dict, dict_2: dict):
     return sum_dict 
 
 
-low = 0
-high = 1 + 1
+low = -100 # нижняя граница
+high = 100 + 1 # верхняя граница
 k = int(input('Введите степень многочлена k: '))
 my_dict = toCreateKoefForPolynomial(k, low, high)
 my_str = toCreatePolynomialStr(my_dict)
