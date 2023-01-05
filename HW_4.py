@@ -68,9 +68,9 @@ def toGetValuesFromString(string):
         if ('x' in value) and ('^' not in value):
             if len(value) > 1:
                 values_dict[1] = int(value[:value.find('*')])
-                values_list.pop()
             else:
                 values_dict[1] = 1
+            values_list.pop()
     # записать в словарь все остальные члены
     for value in values_list:
         if '*' in value:
@@ -89,8 +89,8 @@ def toSumPolynom(dict_1: dict, dict_2: dict):
     return sum_dict 
 
 
-low = -100
-high = 100 + 1
+low = 0
+high = 1 + 1
 k = int(input('Введите степень многочлена k: '))
 my_dict = toCreateKoefForPolynomial(k, low, high)
 my_str = toCreatePolynomialStr(my_dict)
